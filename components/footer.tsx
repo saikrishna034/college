@@ -11,11 +11,11 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <Image
-                src="/images/collegelogo.jpeg"
+                src="/images/collegelogo.png"
                 alt="Sri Vignana Bharathi Degree College Logo"
                 width={32}
                 height={32}
-                className="h-8 w-8 object-contain"
+                className="h-11 w-11 object-contain"
               />
               <h3 className="text-lg font-semibold">Sri Vignana Bharathi Degree College</h3>
             </div>

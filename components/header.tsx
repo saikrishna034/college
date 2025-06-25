@@ -31,11 +31,11 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-4 group">
           <Image
-            src="/images/college-logo.png"
+            src="/images/collegelogo.png"
             alt="Sri Vignana Bharathi Degree College Logo"
             width={50}
             height={50}
-            className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
+            className="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110"
           />
           <div className="flex flex-col">
             <span className="text-2xl font-bold text-primary leading-tight transition-colors duration-300 group-hover:text-primary/80">
@@ -53,11 +53,10 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`relative px-4 py-2 text-base font-medium transition-all duration-300 ease-out rounded-lg group overflow-hidden ${
-                isActive(item.href)
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-              }`}
+              className={`relative px-4 py-2 text-base font-medium transition-all duration-300 ease-out rounded-lg group overflow-hidden ${isActive(item.href)
+                ? "text-primary bg-primary/10"
+                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
             >
               {/* Background hover effect */}
               <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left rounded-lg"></span>
@@ -122,20 +121,18 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden border-t bg-background/95 backdrop-blur transition-all duration-300 ease-out ${
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-        }`}
+        className={`md:hidden border-t bg-background/95 backdrop-blur transition-all duration-300 ease-out ${isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+          }`}
       >
         <nav className="container flex flex-col px-4 py-6 space-y-2">
           {navItems.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`relative px-4 py-3 text-base font-medium transition-all duration-300 ease-out rounded-lg group overflow-hidden ${
-                isActive(item.href)
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-              }`}
+              className={`relative px-4 py-3 text-base font-medium transition-all duration-300 ease-out rounded-lg group overflow-hidden ${isActive(item.href)
+                ? "text-primary bg-primary/10"
+                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
               onClick={() => setIsMenuOpen(false)}
               style={{
                 animationDelay: `${index * 50}ms`,

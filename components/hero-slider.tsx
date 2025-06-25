@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 const slides = [
   {
-    image: "/images/students-campus-bg-1.jpg",
+    image: "/images/slide1.jpg",
     title: "Welcome to Sri Vignana Bharathi Degree College",
     subtitle: "Excellence in Education Since 1985",
     description:
@@ -14,7 +14,7 @@ const slides = [
     duration: 2000,
   },
   {
-    image: "/images/students-campus-bg-2.jpg",
+    image: "/images/slide2.jpg",
     title: "Best Degree College in Your City",
     subtitle: "Shape Your Future with Us",
     description:
@@ -22,14 +22,14 @@ const slides = [
     duration: 2000,
   },
   {
-    image: "/images/students-campus-bg-3.jpg",
+    image: "/images/slide3.jpg",
     title: "Academic Excellence & Innovation",
     subtitle: "50+ Programs | 15,000+ Students | 500+ Faculty",
     description: "Discover cutting-edge programs designed for tomorrow's leaders with state-of-the-art infrastructure.",
     duration: 2000,
   },
   {
-    image: "/images/students-campus-bg-4.jpg",
+    image: "/images/slide4.jpg",
     title: "Your Journey to Success Starts Here",
     subtitle: "Apply Now for 2025 Admissions Open",
     description:
@@ -66,9 +66,8 @@ export default function HeroSlider() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
             style={{
               willChange: index === currentSlide || index === (currentSlide + 1) % slides.length ? "opacity" : "auto",
             }}
@@ -152,9 +151,8 @@ export default function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${
-              index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/75"
-            }`}
+            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/75"
+              }`}
             style={{
               willChange: index === currentSlide ? "transform, background-color" : "auto",
             }}
