@@ -38,10 +38,10 @@ export default function Header() {
             className="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110"
           />
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-primary leading-tight transition-colors duration-300 group-hover:text-primary/80">
+            <span className="text-3xl font-bold text-primary leading-tight transition-colors duration-300 group-hover:text-primary/80">
               Sri Vignana Bharathi Degree College
             </span>
-            <span className="text-xs text-muted-foreground leading-tight transition-colors duration-300 group-hover:text-muted-foreground/80">
+            <span className="text-sm text-muted-foreground leading-tight transition-colors duration-300 group-hover:text-muted-foreground/80">
               D.No.6/18 & 5-2, Pachapuram Kruttivennu, Krishna Dist.
             </span>
           </div>
