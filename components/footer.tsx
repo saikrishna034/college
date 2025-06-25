@@ -11,11 +11,11 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <Image
-                src="/images/collegelogo.png"
+                src="/images/collegelogo.jpeg"
                 alt="Sri Vignana Bharathi Degree College Logo"
                 width={32}
                 height={32}
-                className="h-11 w-11 object-contain"
+                className="h-8 w-8 object-contain"
               />
               <h3 className="text-lg font-semibold">Sri Vignana Bharathi Degree College</h3>
             </div>
@@ -89,9 +89,9 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">
-                  D.No.6/18 & 5-2, Pachapuram
+                  123 Education Street
                   <br />
-                  Kruttivennu, Krishna Dist.
+                  Knowledge City, KC 12345
                 </span>
               </div>
               <div className="flex items-center space-x-3">

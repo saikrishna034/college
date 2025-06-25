@@ -1,40 +1,40 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const slides = [
   {
-    image: "/images/slide1.jpg",
+    image: "/images/students-campus-bg-1.jpg",
     title: "Welcome to Sri Vignana Bharathi Degree College",
     subtitle: "Excellence in Education Since 1985",
     description:
       "Empowering young minds through quality education. Join a legacy of academic excellence and holistic development.",
-    duration: 2000, // 2 seconds
+    duration: 2000,
   },
   {
-    image: "/images/slide2.jpg",
+    image: "/images/students-campus-bg-2.jpg",
     title: "Best Degree College in Your City",
     subtitle: "Shape Your Future with Us",
     description:
       "Join thousands of students who have transformed their lives through our innovative programs and world-class faculty.",
-    duration: 2000, // 2 seconds
+    duration: 2000,
   },
   {
-    image: "/images/slide3.jpg",
+    image: "/images/students-campus-bg-3.jpg",
     title: "Academic Excellence & Innovation",
     subtitle: "50+ Programs | 15,000+ Students | 500+ Faculty",
     description: "Discover cutting-edge programs designed for tomorrow's leaders with state-of-the-art infrastructure.",
-    duration: 2000, // 2 seconds
+    duration: 2000,
   },
   {
-    image: "/images/slide4.jpg",
+    image: "/images/students-campus-bg-4.jpg",
     title: "Your Journey to Success Starts Here",
     subtitle: "Apply Now for 2025 Admissions Open",
     description:
       "Take the first step towards your bright future. Applications are now open for the upcoming academic year.",
-    duration: 3000, // 3 seconds
+    duration: 3000,
   },
 ]
 
@@ -42,33 +42,36 @@ export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  }, [])
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentSlide(index)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 5000)
+  }, [])
+
   useEffect(() => {
     if (!isAutoPlaying) return
 
-    const timer = setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, slides[currentSlide].duration)
-
+    const timer = setTimeout(nextSlide, slides[currentSlide].duration)
     return () => clearTimeout(timer)
-  }, [currentSlide, isAutoPlaying])
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-    setIsAutoPlaying(false)
-    // Resume auto-play after 5 seconds
-    setTimeout(() => setIsAutoPlaying(true), 5000)
-  }
+  }, [currentSlide, isAutoPlaying, nextSlide])
 
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden">
-      {/* Background Images with Quick Soft Fade */}
+    <section className="relative h-screen min-h-[600px] overflow-hidden gpu-accelerate">
+      {/* Background Images with Optimized Transitions */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
+            style={{
+              willChange: index === currentSlide || index === (currentSlide + 1) % slides.length ? "opacity" : "auto",
+            }}
           >
             <Image
               src={slide.image || "/placeholder.svg"}
@@ -76,57 +79,64 @@ export default function HeroSlider() {
               fill
               className="object-cover"
               priority={index === 0}
+              sizes="100vw"
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
-            {/* Dark overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
           </div>
         ))}
       </div>
 
-      {/* Content Overlay with Smooth Left to Right Animation */}
+      {/* Content Overlay with Optimized Animations */}
       <div className="relative z-10 flex h-full items-center">
         <div className="container px-4 md:px-6">
           <div className="max-w-4xl">
-            {/* Animated Text Content */}
             <div key={currentSlide} className="space-y-6">
               <div className="space-y-4">
-                {/* Subtitle - slides in first */}
                 <p
-                  className="text-sm font-semibold text-white/90 tracking-widest uppercase transform transition-all duration-600 ease-out animate-in slide-in-from-left-4 fade-in"
-                  style={{ animationDelay: "0ms" }}
+                  className="text-sm font-semibold text-white/90 tracking-widest uppercase transform transition-all duration-600 ease-out animate-in slide-in-from-left-4 fade-in gpu-accelerate"
+                  style={{
+                    animationDelay: "0ms",
+                    willChange: "transform, opacity",
+                  }}
                 >
                   {slides[currentSlide].subtitle}
                 </p>
 
-                {/* Main Title - slides in second */}
                 <h1
-                  className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl leading-tight transform transition-all duration-700 ease-out animate-in slide-in-from-left-6 fade-in"
-                  style={{ animationDelay: "150ms" }}
+                  className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl leading-tight transform transition-all duration-700 ease-out animate-in slide-in-from-left-6 fade-in gpu-accelerate"
+                  style={{
+                    animationDelay: "150ms",
+                    willChange: "transform, opacity",
+                  }}
                 >
                   {slides[currentSlide].title}
                 </h1>
 
-                {/* Description - slides in third */}
                 <p
-                  className="max-w-2xl text-lg text-white/90 leading-relaxed font-medium transform transition-all duration-600 ease-out animate-in slide-in-from-left-4 fade-in"
-                  style={{ animationDelay: "300ms" }}
+                  className="max-w-2xl text-lg text-white/90 leading-relaxed font-medium transform transition-all duration-600 ease-out animate-in slide-in-from-left-4 fade-in gpu-accelerate"
+                  style={{
+                    animationDelay: "300ms",
+                    willChange: "transform, opacity",
+                  }}
                 >
                   {slides[currentSlide].description}
                 </p>
               </div>
 
-              {/* Static Buttons - No Animation, Positioned with Text */}
               <div className="flex flex-col gap-4 sm:flex-row pt-6">
                 <Button
                   size="lg"
-                  className="bg-white text-black hover:bg-white/90 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105"
+                  className="bg-white text-black hover:bg-white/90 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 gpu-accelerate"
                 >
                   EXPLORE COURSES →
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg gpu-accelerate"
                 >
                   APPLY NOW →
                 </Button>
@@ -136,15 +146,18 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Slide Indicators */}
+      {/* Optimized Slide Indicators */}
       <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-all duration-300 ${
+            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${
               index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/75"
             }`}
+            style={{
+              willChange: index === currentSlide ? "transform, background-color" : "auto",
+            }}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

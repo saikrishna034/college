@@ -67,7 +67,7 @@ export default function HomePage() {
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer">
                   <div className="absolute inset-0">
                     <Image
-                      src="/images/bsccomputers.webp"
+                      src="/images/bsc-computers-bg.jpg"
                       alt="BSC Computers background"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -103,7 +103,7 @@ export default function HomePage() {
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer">
                   <div className="absolute inset-0">
                     <Image
-                      src="/images/bcomcomputers.webp"
+                      src="/images/bcom-computer-bg.jpg"
                       alt="BCom Computer background"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -139,7 +139,7 @@ export default function HomePage() {
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer md:col-span-2 lg:col-span-1">
                   <div className="absolute inset-0">
                     <Image
-                      src="/images/bscaicomputers.webp"
+                      src="/images/bsc-ai-computers-bg.jpg"
                       alt="BSC AI Computers background"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
