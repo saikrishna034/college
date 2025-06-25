@@ -22,7 +22,7 @@ export default function ScrollFadeUp({
 }: ScrollFadeUpProps) {
   const [isVisible, setIsVisible] = useState(false)
   const elementRef = useRef<HTMLDivElement>(null)
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef<NodeJS.Timeout>(null)
 
   const handleIntersection = useCallback(
     ([entry]: IntersectionObserverEntry[]) => {
