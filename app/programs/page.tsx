@@ -1,7 +1,27 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+
+import { useState } from "react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { BookOpen, Clock, Users, Award, Laptop, Microscope, Calculator, Palette, Globe, Briefcase } from "lucide-react"
+import {
+  BookOpen,
+  Clock,
+  Users,
+  Award,
+  Laptop,
+  Microscope,
+  Calculator,
+  Palette,
+  Globe,
+  Briefcase,
+} from "lucide-react"
 import Link from "next/link"
 import ScrollFadeUp from "@/components/scroll-fade-up"
 
@@ -9,7 +29,8 @@ export default function ProgramsPage() {
   const programs = [
     {
       title: "Computer Science",
-      description: "Cutting-edge curriculum covering software development, AI, cybersecurity, and data science.",
+      description:
+        "Cutting-edge curriculum covering software development, AI, cybersecurity, and data science.",
       duration: "4 years",
       students: "1,200+",
       icon: Laptop,
@@ -18,7 +39,8 @@ export default function ProgramsPage() {
     },
     {
       title: "Business Administration",
-      description: "Comprehensive business education with focus on leadership, strategy, and entrepreneurship.",
+      description:
+        "Comprehensive business education with focus on leadership, strategy, and entrepreneurship.",
       duration: "4 years",
       students: "2,000+",
       icon: Briefcase,
@@ -27,7 +49,8 @@ export default function ProgramsPage() {
     },
     {
       title: "Biomedical Sciences",
-      description: "Advanced study in life sciences, preparing students for medical and research careers.",
+      description:
+        "Advanced study in life sciences, preparing students for medical and research careers.",
       duration: "4 years",
       students: "800+",
       icon: Microscope,
@@ -36,7 +59,8 @@ export default function ProgramsPage() {
     },
     {
       title: "Engineering",
-      description: "Multiple engineering disciplines including mechanical, electrical, and civil engineering.",
+      description:
+        "Multiple engineering disciplines including mechanical, electrical, and civil engineering.",
       duration: "4 years",
       students: "1,500+",
       icon: Calculator,
@@ -45,7 +69,8 @@ export default function ProgramsPage() {
     },
     {
       title: "Fine Arts",
-      description: "Creative programs in visual arts, music, theater, and digital media production.",
+      description:
+        "Creative programs in visual arts, music, theater, and digital media production.",
       duration: "4 years",
       students: "600+",
       icon: Palette,
@@ -54,7 +79,8 @@ export default function ProgramsPage() {
     },
     {
       title: "International Relations",
-      description: "Global perspective on politics, economics, and cultural studies for future diplomats.",
+      description:
+        "Global perspective on politics, economics, and cultural studies for future diplomats.",
       duration: "4 years",
       students: "400+",
       icon: Globe,
@@ -63,7 +89,22 @@ export default function ProgramsPage() {
     },
   ]
 
-  const categories = ["All", "Technology", "Business", "Science", "Engineering", "Arts", "Social Sciences"]
+  const categories = [
+    "All",
+    "Technology",
+    "Business",
+    "Science",
+    "Engineering",
+    "Arts",
+    "Social Sciences",
+  ]
+
+  const [selectedCategory, setSelectedCategory] = useState("All")
+
+  const filteredPrograms =
+    selectedCategory === "All"
+      ? programs
+      : programs.filter((p) => p.category === selectedCategory)
 
   return (
     <div className="flex flex-col">
@@ -73,7 +114,7 @@ export default function ProgramsPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <Badge variant="secondary" className="mb-4">
+                <Badge variant="secondary" className="mb-4 text-base px-4 py-2">
                   Academic Programs
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -140,14 +181,17 @@ export default function ProgramsPage() {
               </div>
             </ScrollFadeUp>
 
-            {/* Category Filter */}
             <ScrollFadeUp delay={100}>
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {categories.map((category) => (
                   <Badge
                     key={category}
-                    variant="outline"
-                    className="cursor-pointer hover:bg-primary hover:text-primary-foreground"
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`cursor-pointer transition-all hover:bg-primary hover:text-primary-foreground ${selectedCategory === category
+                      ? "bg-primary text-primary-foreground"
+                      : ""
+                      }`}
                   >
                     {category}
                   </Badge>
@@ -155,13 +199,12 @@ export default function ProgramsPage() {
               </div>
             </ScrollFadeUp>
 
-            {/* Programs Grid */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {programs.map((program, index) => {
+              {filteredPrograms.map((program, index) => {
                 const IconComponent = program.icon
                 return (
                   <ScrollFadeUp key={index} delay={100 + index * 100}>
-                    <Card className="hover:shadow-lg transition-shadow">
+                    <Card className="transform transition-transform duration-300 hover:scale-[1.1] hover:shadow-xl shadow-md">
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
                           <IconComponent className="h-8 w-8 text-primary" />
@@ -193,125 +236,6 @@ export default function ProgramsPage() {
                   </ScrollFadeUp>
                 )
               })}
-            </div>
-          </div>
-        </section>
-      </ScrollFadeUp>
-
-      {/* Graduate Programs */}
-      <ScrollFadeUp>
-        <section className="py-12 md:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <ScrollFadeUp>
-                <div className="flex flex-col justify-center space-y-4">
-                  <div className="space-y-2">
-                    <Badge variant="outline">Graduate Studies</Badge>
-                    <h2 className="text-3xl font-bold tracking-tighter">Advanced Degrees for Career Growth</h2>
-                    <p className="text-muted-foreground md:text-lg">
-                      Take your expertise to the next level with our master's and doctoral programs. Designed for
-                      working professionals and full-time students, our graduate programs offer flexible scheduling and
-                      cutting-edge research opportunities.
-                    </p>
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <h3 className="font-semibold">Master's Programs</h3>
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• MBA (Executive & Full-time)</li>
-                        <li>• MS in Data Science</li>
-                        <li>• MA in Education</li>
-                        <li>• MS in Engineering</li>
-                      </ul>
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="font-semibold">Doctoral Programs</h3>
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• PhD in Computer Science</li>
-                        <li>• PhD in Business</li>
-                        <li>• PhD in Education</li>
-                        <li>• PhD in Engineering</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <Button asChild>
-                    <Link href="#">Explore Graduate Programs</Link>
-                  </Button>
-                </div>
-              </ScrollFadeUp>
-              <ScrollFadeUp delay={200}>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Research Opportunities</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>
-                        Work alongside renowned faculty on groundbreaking research projects that address real-world
-                        challenges.
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Industry Connections</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>
-                        Benefit from our strong partnerships with leading companies and organizations in your field.
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Flexible Learning</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>
-                        Choose from full-time, part-time, and online options to fit your schedule and career goals.
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Career Support</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>
-                        Access dedicated career services, networking events, and alumni connections throughout your
-                        program.
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </div>
-              </ScrollFadeUp>
-            </div>
-          </div>
-        </section>
-      </ScrollFadeUp>
-
-      {/* CTA Section */}
-      <ScrollFadeUp>
-        <section className="py-12 md:py-24 bg-muted/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <ScrollFadeUp>
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to Apply?</h2>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Take the next step in your educational journey. Our admissions team is here to help you find the
-                    perfect program for your goals.
-                  </p>
-                </div>
-              </ScrollFadeUp>
-              <ScrollFadeUp delay={200}>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">Start Application</Button>
-                  <Button variant="outline" size="lg">
-                    Request Information
-                  </Button>
-                </div>
-              </ScrollFadeUp>
             </div>
           </div>
         </section>

@@ -21,7 +21,7 @@ export default function Footer() {
               <h3 className="text-lg font-semibold">Sri Vignana Bharathi Degree College</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              Empowering students with quality education and innovative learning experiences since 1985.
+              Empowering students with quality education and innovative learning experiences since 2010.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary">
@@ -90,18 +90,18 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm text-muted-foreground">
-                  123 Education Street
+                  D.No.6/18 & 5-2, Pachapuram
                   <br />
-                  Knowledge City, KC 12345
+                  Kruttivennu, Krishna Dist
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="text-sm text-muted-foreground">+91 9390556666</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">info@svbdegreecollege.edu</span>
+                <span className="text-sm text-muted-foreground">srivignanabarathi.edu.in</span>
               </div>
             </div>
           </div>

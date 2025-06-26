@@ -14,13 +14,13 @@ export default function AboutPage() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="secondary" className="mb-4">
-                  About EduCollege
+                  About Sri Vignana Bharathi Degree College
                 </Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Empowering Minds Since 1985
+                  Empowering Minds Since 2010
                 </h1>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  For nearly four decades, EduCollege has been at the forefront of higher education, nurturing
+                  For nearly four decades, Sri Vignana Bharathi Degree College has been at the forefront of higher education, nurturing
                   tomorrow's leaders and innovators through excellence in teaching, research, and community service.
                 </p>
               </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
                   <div className="space-y-2">
                     <h2 className="text-3xl font-bold tracking-tighter">Our Story</h2>
                     <p className="text-muted-foreground md:text-lg">
-                      Founded in 1985 by visionary educators Dr. Sarah Johnson and Dr. Michael Chen, EduCollege began as
+                      Founded in 2010 by visionary educators Dr. Sarah Johnson and Dr. Michael Chen, Sri Vignana Bharathi Degree College began as
                       a small institution with big dreams. What started with just 200 students and 15 faculty members
                       has grown into a prestigious institution serving over 15,000 students from around the world.
                     </p>
@@ -53,7 +53,7 @@ export default function AboutPage() {
               </ScrollFadeUp>
               <ScrollFadeUp delay={200}>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/collegeimage.avif"
                   width={600}
                   height={400}
                   alt="Historic campus building"
@@ -153,7 +153,7 @@ export default function AboutPage() {
             </ScrollFadeUp>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ScrollFadeUp delay={100}>
-                <Card>
+                <Card className="transition-transform duration-300 hover:scale-110 hover:shadow-lg">
                   <CardHeader className="text-center">
                     <Image
                       src="/placeholder.svg?height=200&width=200"
@@ -167,14 +167,15 @@ export default function AboutPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground text-center">
-                      Leading EduCollege with 20+ years of experience in higher education administration and a passion
+                      Leading Sri Vignana Bharathi Degree College with 15 years of experience in higher education administration and a passion
                       for student success.
                     </p>
                   </CardContent>
                 </Card>
               </ScrollFadeUp>
+
               <ScrollFadeUp delay={200}>
-                <Card>
+                <Card className="transition-transform duration-300 hover:scale-110 hover:shadow-lg">
                   <CardHeader className="text-center">
                     <Image
                       src="/placeholder.svg?height=200&width=200"
@@ -194,8 +195,9 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               </ScrollFadeUp>
+
               <ScrollFadeUp delay={300}>
-                <Card>
+                <Card className="transition-transform duration-300 hover:scale-110 hover:shadow-lg">
                   <CardHeader className="text-center">
                     <Image
                       src="/placeholder.svg?height=200&width=200"
@@ -219,6 +221,7 @@ export default function AboutPage() {
           </div>
         </section>
       </ScrollFadeUp>
+
 
       {/* Achievements */}
       <ScrollFadeUp>
