@@ -13,7 +13,7 @@ export default function AnimatedCounter({ end, duration = 1000, suffix = "", pre
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const counterRef = useRef<HTMLDivElement>(null)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number>(null)
 
   const handleIntersection = useCallback(
     ([entry]: IntersectionObserverEntry[]) => {

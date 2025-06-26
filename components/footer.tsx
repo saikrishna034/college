@@ -13,9 +13,10 @@ export default function Footer() {
               <Image
                 src="/images/collegelogo.png"
                 alt="Sri Vignana Bharathi Degree College Logo"
-                width={32}
-                height={32}
+                width={44}
+                height={44}
                 className="h-11 w-11 object-contain"
+                priority // loads image faster, useful for logos
               />
               <h3 className="text-lg font-semibold">Sri Vignana Bharathi Degree College</h3>
             </div>

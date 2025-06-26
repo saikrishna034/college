@@ -1,10 +1,11 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Computer, TrendingUp, Brain } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Computer, TrendingUp, Brain } from "lucide-react"
 import HeroSlider from "@/components/hero-slider"
 import AnimatedCounter from "@/components/animated-counter"
 import ScrollFadeUp from "@/components/scroll-fade-up"
+import AutoScrollingNews from "@/components/auto-scrolling-news"
 
 export default function HomePage() {
   return (
@@ -188,7 +189,7 @@ export default function HomePage() {
         <section className="py-12 md:py-24 bg-muted/50">
           <div className="container px-4 md:px-6">
             <ScrollFadeUp>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Latest News & Events</h2>
                   <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -197,56 +198,7 @@ export default function HomePage() {
                 </div>
               </div>
             </ScrollFadeUp>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-3">
-              <ScrollFadeUp delay={100}>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span>Dec 15, 2024</span>
-                    </div>
-                    <CardTitle>Spring Semester Registration Opens</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Registration for Spring 2025 semester is now open. Don't miss out on your preferred courses!
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </ScrollFadeUp>
-              <ScrollFadeUp delay={200}>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span>Dec 20, 2024</span>
-                    </div>
-                    <CardTitle>Annual Science Fair</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Join us for our annual science fair showcasing innovative projects from our students.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </ScrollFadeUp>
-              <ScrollFadeUp delay={300}>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span>Jan 5, 2025</span>
-                    </div>
-                    <CardTitle>New Library Wing Opening</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Our state-of-the-art library extension opens with modern study spaces and digital resources.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </ScrollFadeUp>
-            </div>
+            <AutoScrollingNews />
           </div>
         </section>
       </ScrollFadeUp>

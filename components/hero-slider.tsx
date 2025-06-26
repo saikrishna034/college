@@ -49,7 +49,7 @@ export default function HeroSlider() {
   const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index)
     setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 5000)
+    setTimeout(() => setIsAutoPlaying(true), 1500)
   }, [])
 
   useEffect(() => {
