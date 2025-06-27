@@ -2,7 +2,6 @@
 // app/about/page.tsx
 "use client"
 
-import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Target, Eye, Heart, Globe } from "lucide-react"
@@ -54,7 +53,7 @@ export default function AboutPage() {
             </h1>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               For nearly four decades, Sri Vignana Bharathi Degree College has been at the forefront of higher education,
-              nurturing tomorrow's leaders and innovators through excellence in teaching, research, and community service.
+              nurturing tomorrow&apos;s leaders and innovators through excellence in teaching, research, and community service.
             </p>
           </div>
         </section>
@@ -79,7 +78,7 @@ export default function AboutPage() {
               </div>
             </ScrollFadeUp>
             <ScrollFadeUp delay={200}>
-              <Image
+              <img
                 src="/images/collegeimage.avif"
                 width={600}
                 height={400}

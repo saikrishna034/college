@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Moon, Sun } from "lucide-react"
@@ -30,7 +29,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-4 group">
-          <Image
+          <img
             src="/images/collegelogo.png"
             alt="Sri Vignana Bharathi Degree College Logo"
             width={50}
@@ -38,7 +37,7 @@ export default function Header() {
             className="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110"
           />
           <div className="flex flex-col">
-            <span className="text-3xl font-bold text-primary leading-tight transition-colors duration-300 group-hover:text-primary/80">
+            <span className="md:text-3xl font-bold text-primary leading-tight transition-colors duration-300 group-hover:text-primary/80">
               Sri Vignana Bharathi Degree College
             </span>
             <span className="text-sm text-muted-foreground leading-tight transition-colors duration-300 group-hover:text-muted-foreground/80">

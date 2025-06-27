@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
@@ -10,13 +9,12 @@ export default function Footer() {
           {/* College Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <Image
+              <img
                 src="/images/collegelogo.png"
                 alt="Sri Vignana Bharathi Degree College Logo"
                 width={44}
                 height={44}
                 className="h-11 w-11 object-contain"
-                priority // loads image faster, useful for logos
               />
               <h3 className="text-lg font-semibold">Sri Vignana Bharathi Degree College</h3>
             </div>

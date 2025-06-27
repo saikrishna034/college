@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Computer, TrendingUp, Brain } from "lucide-react"
@@ -67,10 +66,9 @@ export default function HomePage() {
               <ScrollFadeUp delay={100}>
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer">
                   <div className="absolute inset-0">
-                    <Image
+                    <img
                       src="/images/bsccomputers.webp"
                       alt="BSC Computers background"
-                      fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500"></div>
@@ -103,10 +101,9 @@ export default function HomePage() {
               <ScrollFadeUp delay={200}>
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer">
                   <div className="absolute inset-0">
-                    <Image
+                    <img
                       src="/images/bcomcomputers.webp"
                       alt="BCom Computer background"
-                      fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500"></div>
@@ -139,10 +136,9 @@ export default function HomePage() {
               <ScrollFadeUp delay={300}>
                 <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:scale-110 hover:z-10 cursor-pointer md:col-span-2 lg:col-span-1">
                   <div className="absolute inset-0">
-                    <Image
+                    <img
                       src="/images/bscaicomputers.webp"
                       alt="BSC AI Computers background"
-                      fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/40 transition-all duration-500"></div>
