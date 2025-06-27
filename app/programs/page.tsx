@@ -120,7 +120,7 @@ export default function ProgramsPage() {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                   Discover Your Path to Success
                 </h1>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Choose from our diverse range of undergraduate and graduate programs designed to prepare you for the
                   challenges and opportunities of tomorrow.
                 </p>
@@ -130,7 +130,7 @@ export default function ProgramsPage() {
         </section>
       </ScrollFadeUp>
 
-      {/* Programs Overview */}
+      {/* Program Highlights */}
       <ScrollFadeUp>
         <section className="py-12 md:py-24">
           <div className="container px-4 md:px-6">
@@ -168,7 +168,7 @@ export default function ProgramsPage() {
         </section>
       </ScrollFadeUp>
 
-      {/* Program Categories */}
+      {/* Filter + Programs Grid */}
       <ScrollFadeUp>
         <section className="py-12 md:py-24 bg-muted/50">
           <div className="container px-4 md:px-6">
@@ -181,6 +181,7 @@ export default function ProgramsPage() {
               </div>
             </ScrollFadeUp>
 
+            {/* Category Filter */}
             <ScrollFadeUp delay={100}>
               <div className="flex flex-wrap justify-center gap-2 mb-8">
                 {categories.map((category) => (
@@ -188,9 +189,7 @@ export default function ProgramsPage() {
                     key={category}
                     variant={selectedCategory === category ? "default" : "outline"}
                     onClick={() => setSelectedCategory(category)}
-                    className={`cursor-pointer transition-all hover:bg-primary hover:text-primary-foreground ${selectedCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : ""
+                    className={`cursor-pointer transition-all hover:bg-primary hover:text-primary-foreground ${selectedCategory === category ? "bg-primary text-primary-foreground" : ""
                       }`}
                   >
                     {category}
@@ -199,12 +198,13 @@ export default function ProgramsPage() {
               </div>
             </ScrollFadeUp>
 
+            {/* Programs Cards */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredPrograms.map((program, index) => {
                 const IconComponent = program.icon
                 return (
                   <ScrollFadeUp key={index} delay={100 + index * 100}>
-                    <Card className="transform transition-transform duration-300 hover:scale-[1.1] hover:shadow-xl shadow-md">
+                    <Card className="transform transition duration-300 hover:scale-[1.1] hover:shadow-xl hover:opacity-90 shadow-md">
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
                           <IconComponent className="h-8 w-8 text-primary" />

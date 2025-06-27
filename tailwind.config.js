@@ -32,9 +32,19 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        shine: {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        shineDiagonal: {
+          "0%": { backgroundPosition: "-150% -150%" },
+          "100%": { backgroundPosition: "150% 150%" },
+        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+        shine: "shine 1.5s linear infinite",
+        shineDiagonal: "shineDiagonal 1.2s linear forwards",
       },
     },
   },
