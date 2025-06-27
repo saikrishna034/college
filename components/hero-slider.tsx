@@ -132,15 +132,16 @@ export default function HeroSlider() {
                 >
                   <Link href="/programs">EXPLORE COURSES →</Link>
                 </Button>
-                <Link href={"/apply"}>
+                <Link href="/apply" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg gpu-accelerate"
+                    className="w-full sm:w-auto border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg gpu-accelerate"
                   >
                     APPLY NOW →
                   </Button>
                 </Link>
+
               </div>
             </div>
           </div>
