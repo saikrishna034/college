@@ -5,6 +5,7 @@ import HeroSlider from "@/components/hero-slider"
 import AnimatedCounter from "@/components/animated-counter"
 import ScrollFadeUp from "@/components/scroll-fade-up"
 import AutoScrollingNews from "@/components/auto-scrolling-news"
+import Link from "next/link"
 
 export default function HomePage() {
   return (
@@ -171,8 +172,9 @@ export default function HomePage() {
             {/* Call to Action */}
             <ScrollFadeUp delay={400}>
               <div className="text-center mt-12">
+
                 <Button size="lg" className="px-8">
-                  View All Courses
+                  <Link href="/programs">View All Courses</Link>
                 </Button>
               </div>
             </ScrollFadeUp>
@@ -212,9 +214,12 @@ export default function HomePage() {
                   </p>
                 </div>
               </ScrollFadeUp>
+
               <ScrollFadeUp delay={200}>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">Apply Now</Button>
+                  <Button asChild size="lg">
+                    <Link href="/apply">Apply Now</Link>
+                  </Button>
                   <Button variant="outline" size="lg">
                     Schedule a Visit
                   </Button>

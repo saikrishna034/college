@@ -67,13 +67,12 @@ export default function HeroSlider() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
             style={{
               willChange:
                 index === currentSlide ||
-                index === (currentSlide + 1) % slides.length
+                  index === (currentSlide + 1) % slides.length
                   ? "opacity"
                   : "auto",
             }}
@@ -131,7 +130,7 @@ export default function HeroSlider() {
                   size="lg"
                   className="bg-white text-black hover:bg-white/90 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 gpu-accelerate"
                 >
-                  EXPLORE COURSES →
+                  <Link href="/programs">EXPLORE COURSES →</Link>
                 </Button>
                 <Link href={"/apply"}>
                   <Button
@@ -154,11 +153,10 @@ export default function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${
-              index === currentSlide
-                ? "bg-white scale-110"
-                : "bg-white/50 hover:bg-white/75"
-            }`}
+            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${index === currentSlide
+              ? "bg-white scale-110"
+              : "bg-white/50 hover:bg-white/75"
+              }`}
             style={{
               willChange:
                 index === currentSlide ? "transform, background-color" : "auto",
