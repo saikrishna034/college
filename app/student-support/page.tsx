@@ -15,7 +15,7 @@ export default function StudentSupportPage() {
                 Comprehensive Student Support
               </h1>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Dedicated support services to ensure every student's success and well-being throughout their academic
+                Dedicated support services to ensure every student&apos;s success and well-being throughout their academic
                 journey.
               </p>
             </div>

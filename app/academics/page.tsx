@@ -32,7 +32,7 @@ export default function AcademicsPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Bachelor's degree programs across various disciplines including Arts, Science, and Commerce.
+                  Bachelor&apos;s degree programs across various disciplines including Arts, Science, and Commerce.
                 </CardDescription>
               </CardContent>
             </Card>

@@ -5,12 +5,13 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { setTheme, theme } = useTheme()
   const pathname = usePathname()
+  const router = useRouter()
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -92,6 +93,7 @@ export default function Header() {
           {/* Apply Now Button */}
           <Button
             size="sm"
+            onClick={()=>router.push('/apply')}
             className="ml-2 relative overflow-hidden group bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
@@ -171,6 +173,7 @@ export default function Header() {
           {/* Mobile Apply Button */}
           <Button
             size="sm"
+            onClick={()=>router.push('/apply')}
             className="w-fit mt-2 relative overflow-hidden group bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>

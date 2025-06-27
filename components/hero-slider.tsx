@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useCallback } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const slides = [
   {
@@ -24,7 +25,8 @@ const slides = [
     image: "/images/slide3.jpg",
     title: "Academic Excellence & Innovation",
     subtitle: "50+ Programs | 15,000+ Students | 500+ Faculty",
-    description: "Discover cutting-edge programs designed for tomorrow's leaders with state-of-the-art infrastructure.",
+    description:
+      "Discover cutting-edge programs designed for tomorrow's leaders with state-of-the-art infrastructure.",
     duration: 2000,
   },
   {
@@ -35,28 +37,28 @@ const slides = [
       "Take the first step towards your bright future. Applications are now open for the upcoming academic year.",
     duration: 3000,
   },
-]
+];
 
 export default function HeroSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }, [])
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, []);
 
   const goToSlide = useCallback((index: number) => {
-    setCurrentSlide(index)
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 1500)
-  }, [])
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 1500);
+  }, []);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
-    const timer = setTimeout(nextSlide, slides[currentSlide].duration)
-    return () => clearTimeout(timer)
-  }, [currentSlide, isAutoPlaying, nextSlide])
+    const timer = setTimeout(nextSlide, slides[currentSlide].duration);
+    return () => clearTimeout(timer);
+  }, [currentSlide, isAutoPlaying, nextSlide]);
 
   return (
     <section className="relative h-screen min-h-[600px] overflow-hidden gpu-accelerate">
@@ -65,10 +67,15 @@ export default function HeroSlider() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${index === currentSlide ? "opacity-100" : "opacity-0"
-              }`}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out gpu-accelerate ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
             style={{
-              willChange: index === currentSlide || index === (currentSlide + 1) % slides.length ? "opacity" : "auto",
+              willChange:
+                index === currentSlide ||
+                index === (currentSlide + 1) % slides.length
+                  ? "opacity"
+                  : "auto",
             }}
           >
             <img
@@ -126,13 +133,15 @@ export default function HeroSlider() {
                 >
                   EXPLORE COURSES →
                 </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg gpu-accelerate"
-                >
-                  APPLY NOW →
-                </Button>
+                <Link href={"/apply"}>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border border-white/30 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white/50 px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 shadow-lg gpu-accelerate"
+                  >
+                    APPLY NOW →
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -145,15 +154,19 @@ export default function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${index === currentSlide ? "bg-white scale-110" : "bg-white/50 hover:bg-white/75"
-              }`}
+            className={`h-3 w-3 rounded-full transition-all duration-300 gpu-accelerate ${
+              index === currentSlide
+                ? "bg-white scale-110"
+                : "bg-white/50 hover:bg-white/75"
+            }`}
             style={{
-              willChange: index === currentSlide ? "transform, background-color" : "auto",
+              willChange:
+                index === currentSlide ? "transform, background-color" : "auto",
             }}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </section>
-  )
+  );
 }
